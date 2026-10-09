@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Validator dashboard
+    url: https://falcon-ledger.com/validator
+    about: Status of applications and seats

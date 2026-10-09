@@ -1,0 +1,56 @@
+name: Validator application
+description: Apply to run a Falcon PL testnet (2300) validator. Public data only.
+title: "Validator application: "
+labels: ["application"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill this in from the `validator/application.json` your installer wrote (or use the link it printed).
+        **Never paste a secret key, key file or password.** Only `application.json` is needed.
+  - type: input
+    id: id
+    attributes:
+      label: Validator id
+      description: Lowercase, 3-32 chars, starts with a letter (a-z, 0-9, -).
+      placeholder: myname
+    validations:
+      required: true
+  - type: input
+    id: fingerprint
+    attributes:
+      label: Key fingerprint
+      description: validator_key_fingerprint from application.json (first 16 hex of sha256 of the public key).
+    validations:
+      required: true
+  - type: input
+    id: bond_account
+    attributes:
+      label: Bond account
+      placeholder: myname-bond
+    validations:
+      required: true
+  - type: input
+    id: contact
+    attributes:
+      label: Contact
+      description: Email, X handle or similar, so we can reach you if your node misbehaves.
+    validations:
+      required: true
+  - type: textarea
+    id: application
+    attributes:
+      label: Application
+      description: The full contents of application.json.
+      render: json
+    validations:
+      required: true
+  - type: checkboxes
+    id: ack
+    attributes:
+      label: Checks
+      options:
+        - label: The server stays online, and I understand an offline seat goes inactive after 20 missed turns.
+          required: true
+        - label: I did not paste any secret key, key file or password.
+          required: true
